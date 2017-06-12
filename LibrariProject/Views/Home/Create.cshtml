@@ -1,0 +1,36 @@
+﻿@model LibrariProject.Models.Book
+@using LibrariProject.Models
+@{
+    ViewBag.Title = "Create";
+}
+
+
+
+@using (Html.BeginForm())
+{
+
+    <fieldset>
+        <legend>Книга</legend>
+
+        
+
+        <div class="editor-label"><b>Название</b></div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+        </div>
+
+        <div class="editor-label"><b>Фото</b></div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ColorFoto)
+        </div>
+        <div class="editor-label"><b>Авторы</b></div>
+        @foreach (Author c in ViewBag.Authors)
+{
+    <input type="checkbox" name="selectedAuthors" value="@c.AuthorId" />@c.FIO <br />
+        }
+
+        <p>
+            <input type="submit" value="Сохранить" />
+        </p>
+    </fieldset>
+}

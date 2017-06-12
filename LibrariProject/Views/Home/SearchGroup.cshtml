@@ -1,0 +1,100 @@
+﻿@model IEnumerable<LibrariProject.Models.Book>
+@using LibrariProject.Models
+@{
+    ViewBag.Title = "Поиск по названию книги, авторам и краткому описанию";
+}
+
+<h2>Поиск по названию книги, авторам и краткому описанию</h2>
+
+    
+@using (Html.BeginForm())
+{  
+    <p>
+        Введите название книги @Html.TextBox("names[0]")
+</p>
+    <p>
+        Введите авторов:
+    </p>
+    <p>
+        Введите первого автора @Html.TextBox("names[1]")
+</p>
+    <p>
+        Введите второго автора @Html.TextBox("names[2]")
+</p>
+    <p>
+        Введите третьего автора  @Html.TextBox("names[3]")
+    </p>
+      <p>
+        Введите краткое описание @Html.TextBox("names[4]")
+</p>
+    <input type="submit" value="Поиск" />
+}
+        <table class="table">
+            <tr>
+                <th>
+                    Название книги
+                </th>
+                <th>
+                    Цвет обложки
+                </th>
+                <th>
+                    Авторы
+                </th>
+                <th>
+                    Жанр
+                </th>
+                <th>
+                    Количество книг
+                </th>
+                <th>
+                    Остаток книг
+                </th>
+                <th>
+                    Краткое описание
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+    {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ColorFoto)
+                    </td>
+                    <td>
+                        @*@foreach (var item1 in Model.Authors)
+                            {
+                                @Html.DisplayFor(modelItem => item.Name)
+                            }*@
+                        @*@Html.DisplayFor(modelItem => item.Authors.ToString())*@
+
+                        @*@for(int i=0,i<item.Authors.ToList)*@
+                        @Html.DisplayFor(modelItem => item.TopAuthor)
+                        @Html.DisplayFor(modelItem => item.Top2Author)
+                        @Html.DisplayFor(modelItem => item.Top3Author)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Genre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Stock)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Stock)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShortDescription)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.BookId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.BookId })
+                        @*@Html.ActionLink("Delete", "Delete", new { id=item.BookId })*@
+                    </td>
+                </tr>
+    }
+
+        </table>

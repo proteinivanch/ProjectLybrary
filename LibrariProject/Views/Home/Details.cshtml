@@ -1,0 +1,34 @@
+﻿@model LibrariProject.Models.Book
+@using LibrariProject.Models
+@{
+    ViewBag.Title = "Details";
+}
+
+<fieldset>
+    <legend>Информация о студенте</legend>
+
+    <div class="display-label"><b>Имя</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label"><b>Фамилия</b></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ColorFoto)
+    </div>
+
+    <div class="display-label"><b>Курсы</b></div>
+    <ul>
+        @foreach (Author c in Model.Authors)
+        {
+            <li>@c.FIO</li>
+        }
+    </ul>
+
+</fieldset>
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<LibrariProject.Models.Borrowing>
+@using LibrariProject.Models
+@{
+    ViewBag.Title = "SearchForStyle";
+}
+
+<h2>Поиск топ книг по датам</h2>
+
+
+    Введите дату:
+@using (Html.BeginForm())
+{
+    <p>
+        Введите дату  с   @Html.TextBox("names[0]")
+    </p>
+    <p>
+        Введите дату после  @Html.TextBox("names[1]")
+    </p>
+    
+    <input type="submit" />
+}
+<table class="table">
+    <tr>
+        <th>
+            Название книги
+        </th>
+        <th>
+            Цвет обложки
+        </th>
+        <th>
+            Авторы
+        </th>
+        <th>
+            Жанр
+        </th>
+        <th>
+            Количество книг
+        </th>
+        <th>
+            Остаток книг
+        </th>
+        <th></th>
+    </tr>
+        @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BorrowingId)
+            </td>
+        </tr>
+            }
+</table>

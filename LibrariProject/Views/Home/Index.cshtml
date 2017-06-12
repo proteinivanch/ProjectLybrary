@@ -1,0 +1,44 @@
+﻿@model IEnumerable<LibrariProject.Models.Book>
+@using LibrariProject.Models
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>БЛОК 1</h2>
+
+
+@*@using (Html.BeginForm("Details", "Home"))
+{
+    <input type="text" name="id" />
+     <input type="submit"/>
+
+}*@
+ 
+
+<p>
+    @Html.ActionLink("Задание 1.а поиск по названию книги", "SearchForStyle")
+</p>
+<p>
+    @Html.ActionLink("Задание 1.b поиск по одному автору", "SearchForAuthor")
+</p>
+<p>
+    @Html.ActionLink("Задание 1.c поиск книг без автора", "SearchForNonAuthor")
+</p>
+<p>
+    @Html.ActionLink("Задание 1.d поиск книг по 2м и более авторам", "NewGetAuthor")
+</p>
+<p>
+    @Html.ActionLink("Задание 1.e сквозной полнотестовой поиск", "SearchGroup")
+</p>
+
+
+
+
+<h2>БЛОК 2</h2>
+<p>
+    @Html.ActionLink("Задание 2.а топ 10 книг за указаный период //тут баги!!!", "SearchTopBoos")
+   
+</p>
+<p>
+    Все проблемы описаны в "О Программе"
+</p>

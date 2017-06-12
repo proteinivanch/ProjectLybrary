@@ -1,0 +1,77 @@
+﻿
+@model IEnumerable<LibrariProject.Models.Book>
+
+@using LibrariProject.Models
+@{
+    ViewBag.Title = "Поиск по одному автору";
+}
+
+<h2>Поиск по одному автору</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+    @using (Html.BeginForm())
+    {
+    <p>
+        Введите автора: @Html.TextBox("authorName")<br />
+        <input type="submit" value="поиск" />
+    </p>
+    }
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ColorFoto)
+            </th>
+            <th>
+                Авторы
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stock)
+            </th>
+            <th>
+                Остаток книг
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ColorFoto)
+                </td>
+                <td>
+                    
+                    @Html.DisplayFor(modelItem => item.TopAuthor)
+                    @Html.DisplayFor(modelItem => item.Top2Author)
+                    @Html.DisplayFor(modelItem => item.Top3Author)
+           
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stock)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.BookId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.BookId }) 
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.BookId })*@
+                </td>
+            </tr>
+        }
+
+    </table>
